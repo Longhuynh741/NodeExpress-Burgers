@@ -1,7 +1,16 @@
-<h1>Burger Time!</h1>
 
+
+
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="display-4">Burger Time!</h1>
+  </div>
+</div>
+
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-6">
 <h2>Dead Burger Walking! Next on the Eat List</h2>
-
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
@@ -9,9 +18,10 @@
     {{/unless}}
   {{/each}}
 </ul>
+</div>
 
+  <div class = "col-md-6">
 <h2> Burgers we ate!</h2>
-
 <ul>
   {{#each burgers}}
     {{#if devoured}}
@@ -19,6 +29,8 @@
     {{/if}}
   {{/each}}
 </ul>
+</div>
+</div>
 
 <h2>Order a Burger</h2>
 <form class="create-form">
@@ -35,4 +47,7 @@
   </div>
 
   <button type="submit">Update the Burger</button>
+
+  </div>
+
 </form>

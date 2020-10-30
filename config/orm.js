@@ -7,17 +7,19 @@ var connection = require("../config/connection.js");
 // The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 // ["?", "?", "?"].toString() => "?,?,?";
 function printQuestionMarks(num) {
-    var arr = [];
   
     for (var i = 0; i < num; i++) {
       arr.push("?");
     }
   
     return arr.toString();
-  }
+}
+var arr = [];
 
 var orm = {
-    selectAll: function (tableInput, cb) {
+
+
+    all: function (tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
@@ -62,4 +64,18 @@ var orm = {
             cb(result);
         });
     },
-}
+    delete: function (table, condition, cb) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+    
+        connection.query(queryString, function (err, result) {
+          if (err) {
+            throw err;
+          }
+    
+          cb(result);
+        });
+      },
+};
+module.exports = orm;
