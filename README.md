@@ -1,245 +1,63 @@
-# NodeExpress-Burgers
-# Node Express Handlebars
+# Node-Express-Burgers
 
-### Overview
+This project was created for the intents and purposes of combining MySQL, Node, Express, Handlebars, and ORM skills in order to make a burger app. The objective of the project was for the user to be able to generate a burger app with GET,POST,and DELETE functions using express and have it render on the page using handlebar functions. Execution of this requires that we: <ul>
+<li> Utilize npm packages to utilize express and handlebar functions
+<li> Making use of the GET, POST, and DELETE methods to generate our own API calls.
+<li> Troubleshooting errors along the way
 
-In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
+</ul>
 
-### Read This
+The project is done through the use of [Visual Studio Code](https://code.visualstudio.com) and aide from [NPM documentations](https://www.npmjs.com/).
 
-When trying to connect remotely to your Heroku database on an open network such as a coffee shop, library, or even your University WiFi, it will be blocked. If you are experiencing a Heroku connection error, this could be why.
+# Installation
 
-### Important
+Steps to participate in this project:
 
-* **This assignment must be deployed.** Be sure to utilize the [MYSQL Heroku Deployment Guide](../../04-Important/MySQLHerokuDeploymentProcess.pdf) in order to deploy your assignment.
+1. Access the code and relevant css materials through the [GitHub](https://github.com/Longhuynh741/NodeExpress-Burgers)
+2. Fork the project into your own exisitng repository
+3. Clone the copy onto your local branch. *SHH key cloning preferred
+4. Using an installed Visual Studio Code or any other code editor, open the file, run it using node server.js, and begin to make any preferred adjustments
 
-### Before You Begin
 
-* Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+(Optional): You can also install the [Prettier-Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extension to aid in formating the code.
 
-* Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
+# Usage
 
-* Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
+The start of the Burger app happens all on the main a page. You will see two lists where your created burgers will go. In order to create a burger you will input the name inside the input area. Created burgers will appear under the "Dead Burger Walking" list. Users can "devour" the burgers and have it moved to the "Burgers We Ate" list. There will also be a delete button which will function to delete the burger after you click it. 
 
-* Your app will store every burger in a database, whether devoured or not.
 
-* [Check out this video of the app for a run-through of how it works](https://youtu.be/msvdn95x9OM).
+Home Page: <img src= "public\assets\images\Express Burgers.PNG"> 
 
-### Commits
 
-Having an active and healthy commit history on GitHub is important for your future job search. It is also extremely important for making sure your work is saved in your repository. If something breaks, committing often ensures you are able to go back to a working version of your code.
+# Credits
 
-* Committing often is a signal to employers that you are actively working on your code and learning.
+Repository Used: [GitHub](https://github.com/)
 
-  * We use the mantra “commit early and often.”  This means that when you write code that works, add it and commit it!
+Code Editor Used: [Visual Studio Code](https://code.visualstudio.com)
 
-  * Numerous commits allow you to see how your app is progressing and give you a point to revert to if anything goes wrong.
+Extensions: [Prettier-Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-* Be clear and descriptive in your commit messaging.
+Cloud Application Platform: [Heroku](https://heroku.com)
+# License
 
-  * When writing a commit message, avoid vague messages like "fixed." Be descriptive so that you and anyone else looking at your repository knows what happened with each commit.
+MIT License
 
-* We would like you to have well over 200 commits by graduation, so commit early and often!
+Copyright (c) [2020] [LongHuynh]
 
-### Submission on BCS
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-* **This assignment must be deployed.** * Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Instructions
-
-#### App Setup
-
-1. Create a GitHub repo called `burger` and clone it to your computer.
-
-2. Make a package.json file by running `npm init` from the command line.
-
-3. Install the Express npm package: `npm install express`.
-
-4. Create a server.js file.
-
-5. Install the Handlebars npm package: `npm install express-handlebars`.
-
-6. Install MySQL npm package: `npm install mysql`.
-
-7. Require the following npm packages inside of the server.js file:
-   * express
-
-#### DB Setup
-
-1. Inside your `burger` directory, create a folder named `db`.
-
-2. In the `db` folder, create a file named `schema.sql`. Write SQL queries this file that do the following:
-
-   * Create the `burgers_db`.
-   * Switch to or use the `burgers_db`.
-   * Create a `burgers` table with these fields:
-     * **id**: an auto incrementing int that serves as the primary key.
-     * **burger_name**: a string.
-     * **devoured**: a boolean.
-
-3. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
-
-4. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line
-
-5. Now you're going to run these SQL files.
-
-   * Make sure you're in the `db` folder of your app.
-
-   * Start MySQL command line tool and login: `mysql -u root -p`.
-
-   * With the `mysql>` command line tool running, enter the command `source schema.sql`. This will run your schema file and all of the queries in it -- in other words, you'll be creating your database.
-
-   * Now insert the entries you defined in `seeds.sql` by running the file: `source seeds.sql`.
-
-e   * Close out of the MySQL command line tool: `exit`.
-
-#### Config Setup
-
-1. Inside your `burger` directory, create a folder named `config`.
-
-2. Create a `connection.js` file inside `config` directory.
-
-   * Inside the `connection.js` file, setup the code to connect Node to MySQL.
-
-   * Export the connection.
-
-3. Create an `orm.js` file inside `config` directory.
-
-   * Import (require) `connection.js` into `orm.js`
-
-   * In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
-
-     * `selectAll()`
-     * `insertOne()`
-     * `updateOne()`
-
-   * Export the ORM object in `module.exports`.
-
-#### Model setup
-
-* Inside your `burger` directory, create a folder named `models`.
-
-  * In `models`, make a `burger.js` file.
-
-    * Inside `burger.js`, import `orm.js` into `burger.js`
-
-    * Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
-
-    * Export at the end of the `burger.js` file.
-
-#### Controller setup
-
-1. Inside your `burger` directory, create a folder named `controllers`.
-
-2. In `controllers`, create the `burgers_controller.js` file.
-
-3. Inside the `burgers_controller.js` file, import the following:
-
-   * Express
-   * `burger.js`
-
-4. Create the `router` for the app, and export the `router` at the end of your file.
-
-#### View setup
-
-1. Inside your `burger` directory, create a folder named `views`.
-
-   * Create the `index.handlebars` file inside `views` directory.
-
-   * Create the `layouts` directory inside `views` directory.
-
-     * Create the `main.handlebars` file inside `layouts` directory.
-
-     * Setup the `main.handlebars` file so it's able to be used by Handlebars.
-
-     * Setup the `index.handlebars` to have the template that Handlebars can render onto.
-
-     * Create a button in `index.handlebars` that will submit the user input into the database.
-
-#### Directory structure
-
-All the recommended files and directories from the steps above should look like the following structure:
-
-```
-.
-├── config
-│   ├── connection.js
-│   └── orm.js
-│ 
-├── controllers
-│   └── burgers_controller.js
-│
-├── db
-│   ├── schema.sql
-│   └── seeds.sql
-│
-├── models
-│   └── burger.js
-│ 
-├── node_modules
-│ 
-├── package.json
-│
-├── public
-│   └── assets
-│       ├── css
-│       │   └── burger_style.css
-│       └── img
-│           └── burger.png
-│   
-│
-├── server.js
-│
-└── views
-    ├── index.handlebars
-    └── layouts
-        └── main.handlebars
-```
-
-### Reminder: Submission on BCS
-
-* Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
-
-- - -
-
-### Minimum Requirements
-
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Hosting on Heroku and adding a README.md are required for this homework. In addition, add this homework to your portfolio, more information can be found below.
- 
-- - -
-
-### Hosting on Heroku
-
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database.
-
-Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
-
-- - -
-
-### Create a README.md
-
-Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-
-* [About READMEs](https://help.github.com/articles/about-readmes/)
-
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
-- - -
-
-### Add To Your Portfolio
-
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
-- - -
-
-### One More Thing
-
-This is a really tough homework assignment, but we want you to put in your best effort to finish it.
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-### Reminder
-
-When trying to connect remotely to your Heroku database on an open network such as a coffee shop, library, or even your University WiFi, it will be blocked. If you are experiencing a Heroku connection error, this could be why.
-
-**Good Luck!**
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
