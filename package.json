@@ -1,0 +1,27 @@
+{
+  "name": "nodeexpress-burgers",
+  "version": "1.0.0",
+  "description": "This project was created for the intents and purposes of combining MySQL, Node, Express, Handlebars, and ORM skills in order to make a burger app. The objective of the project was for the user to be able to generate a burger app with GET,POST,and DELETE functions using express and have it render on the page using handlebar functions. Execution of this requires that we: <ul>\r <li> Utilize npm packages to utilize express and handlebar functions\r <li> Making use of the GET, POST, and DELETE methods to generate our own API calls.\r <li> Troubleshooting errors along the way",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mysql": "^2.18.1",
+    "orm": "^5.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Longhuynh741/NodeExpress-Burgers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Longhuynh741/NodeExpress-Burgers/issues"
+  },
+  "homepage": "https://github.com/Longhuynh741/NodeExpress-Burgers#readme"
+}
