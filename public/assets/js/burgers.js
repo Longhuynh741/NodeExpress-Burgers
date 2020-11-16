@@ -15,9 +15,9 @@ $(function() {
         function() {
           console.log("changed devoured to", newDevour);
           // Reload the page to get the updated list
-          location.reload();
         }
       );
+      location.reload();
     });
   
     $(".create-form").on("submit", function(event) {
